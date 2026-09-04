@@ -1,0 +1,57 @@
+<world>
+<properties>
+defaultSize height='10' width='18'/>
+</properties>
+<objects>
+<wall x='2' y='4' length='1' style='vertical'/>
+<wall x='2' y='3' length='1' style='vertical'/>
+<wall x='2' y='2' length='1' style='vertical'/>
+<wall x='2' y='1' length='1' style='vertical'/>
+<wall x='3' y='4' length='1' style='horizontal'/>
+<wall x='4' y='4' length='1' style='horizontal'/>
+<wall x='5' y='4' length='1' style='horizontal'/>
+<wall x='6' y='7' length='1' style='vertical'/>
+<wall x='6' y='6' length='1' style='vertical'/>
+<wall x='6' y='5' length='1' style='vertical'/>
+<wall x='6' y='4' length='1' style='horizontal'/>
+<wall x='7' y='7' length='1' style='horizontal'/>
+<wall x='8' y='7' length='1' style='horizontal'/>
+<wall x='9' y='7' length='1' style='horizontal'/>
+<wall x='10' y='7' length='1' style='horizontal'/>
+<wall x='10' y='7' length='1' style='vertical'/>
+<wall x='10' y='6' length='1' style='vertical'/>
+<wall x='10' y='5' length='1' style='vertical'/>
+<wall x='10' y='4' length='1' style='vertical'/>
+<wall x='10' y='3' length='1' style='vertical'/>
+<wall x='10' y='2' length='1' style='vertical'/>
+<wall x='10' y='1' length='1' style='vertical'/>
+<wall x='11' y='2' length='1' style='vertical'/>
+<wall x='11' y='1' length='1' style='vertical'/>
+<wall x='12' y='3' length='1' style='vertical'/>
+<wall x='12' y='2' length='1' style='horizontal'/>
+<wall x='13' y='3' length='1' style='horizontal'/>
+<wall x='13' y='3' length='1' style='vertical'/>
+<wall x='13' y='2' length='1' style='vertical'/>
+<wall x='13' y='1' length='1' style='vertical'/>
+<wall x='14' y='5' length='1' style='vertical'/>
+<wall x='14' y='4' length='1' style='vertical'/>
+<wall x='14' y='3' length='1' style='vertical'/>
+<wall x='14' y='2' length='1' style='vertical'/>
+<wall x='14' y='1' length='1' style='vertical'/>
+<wall x='15' y='5' length='1' style='horizontal'/>
+<wall x='16' y='8' length='1' style='vertical'/>
+<wall x='16' y='7' length='1' style='vertical'/>
+<wall x='16' y='6' length='1' style='vertical'/>
+<wall x='16' y='5' length='1' style='horizontal'/>
+<wall x='17' y='8' length='1' style='horizontal'/>
+<wall x='17' y='8' length='1' style='vertical'/>
+<wall x='17' y='7' length='1' style='vertical'/>
+<wall x='17' y='6' length='1' style='vertical'/>
+<wall x='17' y='5' length='1' style='vertical'/>
+<wall x='17' y='4' length='1' style='vertical'/>
+<wall x='17' y='3' length='1' style='vertical'/>
+<wall x='17' y='2' length='1' style='vertical'/>
+<wall x='17' y='1' length='1' style='vertical'/>
+<beeper x='18' y='1' num='1'/>
+</objects>
+</world>

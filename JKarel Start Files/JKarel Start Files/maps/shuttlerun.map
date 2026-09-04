@@ -1,0 +1,46 @@
+<world>
+<properties>
+defaultSize height='10' width='13'/>
+</properties>
+<objects>
+<wall x='1' y='6' length='1' style='horizontal'/>
+<wall x='1' y='3' length='1' style='horizontal'/>
+<wall x='2' y='7' length='1' style='vertical'/>
+<wall x='2' y='6' length='1' style='horizontal'/>
+<wall x='2' y='4' length='1' style='vertical'/>
+<wall x='2' y='3' length='1' style='horizontal'/>
+<wall x='2' y='1' length='1' style='vertical'/>
+<wall x='3' y='6' length='1' style='horizontal'/>
+<wall x='3' y='3' length='1' style='horizontal'/>
+<wall x='4' y='6' length='1' style='horizontal'/>
+<wall x='4' y='3' length='1' style='horizontal'/>
+<wall x='5' y='6' length='1' style='horizontal'/>
+<wall x='5' y='3' length='1' style='horizontal'/>
+<beeper x='6' y='7' num='5'/>
+<wall x='6' y='6' length='1' style='horizontal'/>
+<beeper x='6' y='4' num='5'/>
+<wall x='6' y='3' length='1' style='horizontal'/>
+<beeper x='6' y='1' num='5'/>
+<wall x='7' y='6' length='1' style='horizontal'/>
+<wall x='7' y='3' length='1' style='horizontal'/>
+<beeper x='8' y='7' num='2'/>
+<wall x='8' y='6' length='1' style='horizontal'/>
+<beeper x='8' y='4' num='2'/>
+<wall x='8' y='3' length='1' style='horizontal'/>
+<beeper x='8' y='1' num='2'/>
+<beeper x='9' y='7' num='3'/>
+<wall x='9' y='6' length='1' style='horizontal'/>
+<beeper x='9' y='4' num='3'/>
+<wall x='9' y='3' length='1' style='horizontal'/>
+<beeper x='9' y='1' num='3'/>
+<wall x='10' y='6' length='1' style='horizontal'/>
+<wall x='10' y='3' length='1' style='horizontal'/>
+<wall x='11' y='6' length='1' style='horizontal'/>
+<wall x='11' y='3' length='1' style='horizontal'/>
+<beeper x='12' y='7' num='7'/>
+<wall x='12' y='6' length='1' style='horizontal'/>
+<beeper x='12' y='4' num='7'/>
+<wall x='12' y='3' length='1' style='horizontal'/>
+<beeper x='12' y='1' num='7'/>
+</objects>
+</world>

@@ -1,0 +1,8 @@
+<world>
+<properties>
+defaultSize height='10' width='10'/>
+</properties>
+<objects>
+<beeper x='9' y='5' num='16'/>
+</objects>
+</world>

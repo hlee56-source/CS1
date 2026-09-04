@@ -1,0 +1,8 @@
+<world>
+<properties>
+defaultSize height='10' width='10'/>
+</properties>
+<objects>
+<wall x='6' y='1' length='1' style='vertical'/>
+</objects>
+</world>

@@ -30,17 +30,17 @@ public class Climber extends Athlete {
     public void climbDownLeft() {
         // assumes climber's head will begin facing the mountain and end in the same direction
         move(1);
-        turnLeft();
-        move(2);
         turnRight();
+        move(2);
+        turnLeft();
 
 
     }
     public void climbDownRight() {
         // assumes climber's head will begin facing the mountain and end in the same direction
         move(1);
-        turnRight();
-        move(2);
         turnLeft();
+        move(2);
+        turnRight();
     }
 }

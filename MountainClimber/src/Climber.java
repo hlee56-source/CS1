@@ -13,11 +13,18 @@ public class Climber extends Athlete {
         super(x, 1, Display.NORTH, 1);
     }
 
-    public void climbUpLeft(int stairSize) {
+    public void climbUpLeft(int stairHeight, int stairLength) {
         // assumes climber's head will begin facing the mountain and end in the same direction
         turnRight();
-        move(stairSize);
+        move(stairHeight);
         turnLeft();
-        move(stairSize);
+        move(stairLength);
+    }
+    public void climbUpRight(int stairHeight, int stairLength) {
+        // assumes climber's head will begin facing the mountain and end in the same direction
+        turnLeft();
+        move(stairHeight);
+        turnRight();
+        move(stairLength);
     }
 }

@@ -29,9 +29,11 @@ public class ClimbEveryMountain {
         Display.openWorld("G:\\My Drive\\School\\9th grade\\CS1\\JKarel Start Files\\JKarel Start Files\\maps\\mountain.map");
         Display.setSize(17, 17);
         Display.setSpeed(10);
-        Climber a = new Climber(8, 1, 1, 10);
+        Climber a = new Climber(8, 1, 1, -2);
         getTreasure(a);
-        Climber b = new Climber(8, 1, 1, 10);
+        Climber b = new Climber(8, 1, 1, -2);
         getTreasure(b);
+        Climber c = new Climber(8, 1, 1, -2);
+        getTreasure(c);
     }
 }

@@ -9,6 +9,7 @@
     </NATIVE>
     <SOURCES>
       <root url="file://$PROJECT_DIR$/../JKarel Start Files/JKarel Start Files" />
+      <root url="jar://$PROJECT_DIR$/../JKarel Start Files/JKarel Start Files/fcpsKarel9-09.jar!/" />
     </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/../JKarel Start Files/JKarel Start Files" recursive="false" />
     <jarDirectory url="file://$PROJECT_DIR$/../JKarel Start Files/JKarel Start Files" recursive="false" type="SOURCES" />

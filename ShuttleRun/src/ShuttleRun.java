@@ -7,8 +7,10 @@ public class ShuttleRun {
         while (!a.nextToABeeper()) {
             a.move();
         }
+        int numBeepers = 0;
         while (a.nextToABeeper()) {
             a.pick(1);
+            numBeepers ++;
         }
         a.turnAround();
         while (a.frontIsClear()) {
@@ -17,11 +19,13 @@ public class ShuttleRun {
         a.jumpLeft();
         a.move();
         a.turnAround();
+        a.put(numBeepers);
     }
     public static void runRace(Racer a) {
         for (int i = 0; i<4; i++) {
             shuttle(a);
         }
+        a.move();
     }
     static void main() {
         Display.openWorld("G:\\My Drive\\School\\9th grade\\CS1\\JKarel Start Files\\JKarel Start Files\\maps\\shuttlerun.map");

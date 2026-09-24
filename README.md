@@ -8,3 +8,5 @@
   - climb mountains
 - Shuttle Run
   - run a relay race
+  - <img width="624" height="593" alt="image" src="https://github.com/user-attachments/assets/2cadd763-3861-48d0-abef-a219ac01fb53" />
+

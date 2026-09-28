@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="JKarel Start Files">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../JKarel Start Files/JKarel Start Files" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/../JKarel Start Files/JKarel Start Files" />
+    </NATIVE>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../JKarel Start Files/JKarel Start Files" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../JKarel Start Files/JKarel Start Files" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../JKarel Start Files/JKarel Start Files" recursive="false" type="SOURCES" />
+  </library>
+</component>

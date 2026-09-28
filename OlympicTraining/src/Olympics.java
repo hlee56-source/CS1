@@ -15,13 +15,13 @@ public class Olympics {
         a.runLaps(1);
         IO.println(a.getName() + " ran " + String.valueOf(a.getLaps()) + " laps and " + String.valueOf(a.getMiles()) + " miles. That was " + String.valueOf(a.getSteps()) + " steps!");
         a.runLaps(1);
-        IO.println(a.getName() + " ran " + String.valueOf(a.getLaps()) + " laps and " + String.valueOf(a.getMiles()) + " miles. That was " + String.valueOf(a.getSteps()) + " step!");
+        IO.println(a.getName() + " ran " + String.valueOf(a.getLaps()) + " laps and " + String.valueOf(a.getMiles()) + " miles. That was " + String.valueOf(a.getSteps()) + " steps!");
         TrackStar b = new TrackStar("b");
         b.runLaps(4);
-        IO.println(b.getName() + " ran " + String.valueOf(b.getLaps()) + " laps and " + String.valueOf(b.getMiles()) + " miles. That was " + String.valueOf(b.getMiles()) + " miles!");
+        IO.println(b.getName() + " ran " + String.valueOf(b.getLaps()) + " laps and " + String.valueOf(b.getMiles()) + " miles. That was " + String.valueOf(b.getSteps()) + " steps!");
         TrackStar c = new TrackStar("c");
         c.runLaps(6);
-        IO.println(c.getName() + " ran " + String.valueOf(c.getLaps()) + " laps and " + String.valueOf(c.getMiles()) + " miles. That was " + String.valueOf(c.getMiles()) + " miles!");
+        IO.println(c.getName() + " ran " + String.valueOf(c.getLaps()) + " laps and " + String.valueOf(c.getMiles()) + " miles. That was " + String.valueOf(c.getSteps()) + " steps!");
 
     }
 }

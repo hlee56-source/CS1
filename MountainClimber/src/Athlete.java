@@ -18,7 +18,6 @@ public class Athlete extends Robot {
     public void turnAround() {
         turnLeft();
         turnLeft();
-        pickBeeper();
 
     }
 }

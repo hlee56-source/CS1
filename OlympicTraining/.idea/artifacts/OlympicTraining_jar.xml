@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="OlympicTraining:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/OlympicTraining_jar</output-path>
+    <root id="archive" name="OlympicTraining.jar">
+      <element id="module-output" name="OlympicTraining" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../JKarel Start Files/JKarel Start Files/xercesImpl.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../JKarel Start Files/JKarel Start Files/fcpsKarel9-09.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

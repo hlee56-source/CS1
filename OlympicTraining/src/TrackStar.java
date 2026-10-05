@@ -11,34 +11,40 @@ public class TrackStar extends Athlete {
         this.laps = 0;
         super(1, 1, Display.EAST, 0);
     }
+
     public String getName() {
         return name;
     }
+
     public int getLaps() {
         return laps;
     }
+
     public int getSteps() {
         return steps;
     }
+
     public int getMiles() {
         return (steps / 20);
     }
+
     public void resetCount() {
         steps = 0;
         laps = 0;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public void runLaps(int numLaps) {
         for (int i = 0; i < 4 * numLaps; i++) {
             while (frontIsClear()) {
-                move();
+                move(1);
                 steps++;
             }
             turnLeft();
         }
         laps += numLaps;
     }
-
 }

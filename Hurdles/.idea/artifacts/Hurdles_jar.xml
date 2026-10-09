@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Hurdles:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Hurdles_jar</output-path>
+    <root id="archive" name="Hurdles.jar">
+      <element id="module-output" name="Hurdles" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../JKarel Start Files/JKarel Start Files/xercesImpl.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../JKarel Start Files/JKarel Start Files/fcpsKarel9-09.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/26.0.2/annotations-26.0.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

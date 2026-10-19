@@ -49,7 +49,8 @@ class Runner extends Athlete {
         return shoesAreOn;
     }
 }
-public void main(String[] args){
+
+public void main(String[] args) {
     Runner harrison = new Runner(15, 67, 1, 1);
     harrison.move(5);
     harrison.toggleShoes();

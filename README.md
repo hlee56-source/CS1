@@ -12,4 +12,5 @@
   - Use polymorphism to make robots jump hurdles
 - Olympic training
   - Run laps around a track
-  
+- Graphics intro
+  - Make a basic picture

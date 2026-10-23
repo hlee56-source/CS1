@@ -1,12 +1,10 @@
 //Required import statements
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.*;
 import javax.swing.*;
-import java.awt.GradientPaint;
-import java.awt.Graphics2D;
 import java.util.List;
 import java.util.ArrayList;
+import java.awt.geom.AffineTransform;
+
 
 //make sure the class extends jPanel
 public class FallFestival extends JPanel {
@@ -16,6 +14,24 @@ public class FallFestival extends JPanel {
         GradientPaint sunset = new GradientPaint(0, 0, new Color(140, 38, 191), 0, 500, new Color(255, 128, 0));
         g2D.setPaint(sunset);
         g2D.fillRect(0, 0, 1000, 800);
+    }
+    public void drawLeaves(Graphics g, int numLeaves, int screenWidth, int screenHeight, double leaveSize) {
+        Image image = new ImageIcon("G:\\My Drive\\School\\9th grade\\CS1\\FallFestival\\src\\leave.png").getImage();
+        Graphics2D g2 = (Graphics2D) g.create();
+
+        int width = image.getWidth(this);
+        int height = image.getHeight(this);
+
+        for (int i = 0; i < numLeaves; i++) {
+            int randomX = (int) ((Math.random() * (screenWidth + 1)));
+            int randomY = (int) ((Math.random() * (screenHeight + 1)));
+            AffineTransform transform = new AffineTransform();
+            transform.translate(randomX, randomY);
+            transform.scale(leaveSize, leaveSize);
+            transform.rotate(randomX);
+            g2.drawImage(image, transform, this);
+        }
+        //g2.dispose();
     }
     public static void drawSun(Graphics g, int x, int y, int size) {
         g.setColor(new Color(255, 219, 0, 255));
@@ -32,10 +48,15 @@ public class FallFestival extends JPanel {
         g.setColor(new Color(143, 45, 45));
         g.fillOval((x-50), (y-height), 100, 150);
     }
+    public static void drawSunBeams(Graphics g, int x, int y, int size) {
+        g.setColor(new Color(255, 219, 0, 100));
+        g.fillArc(x, y, size, size, 0, 180);
+    }
 
     public void paintComponent (Graphics g)	{
         drawSunset(g); // draw background
         drawSun(g, 350, 250, 300); // draw the sun
+        drawSunBeams(g, 300, 200, 400);
         g.setColor(new Color(52, 74, 34)); // dark green
         g.fillRect(0, 400, 1000, 800); // draw the ground
         g.setColor(new Color(51, 37, 29, 255)); // dark brown
@@ -51,6 +72,8 @@ public class FallFestival extends JPanel {
         g.setColor(new Color(0, 0, 0)); // black
         g.setFont(new Font(Font.SERIF, Font.BOLD, 30)); // set font to a decent size
         g.drawString("Fall!", 775, 610); // draw text for the sign
+        drawLeaves(g, 10, 1000, 800, 0.1);
+
     }
     //Driver
     public static void main (String[] args) {

@@ -9,6 +9,10 @@ public class Raytracer extends JPanel {
         spheres.add(new Sphere(new Point3d(2, 0, 5), 1, Color.GREEN, 1));
         spheres.add(new Sphere(new Point3d(-2, 0, 5), 1, Color.BLUE, 1));
     }
+    public void setPixel(Graphics g, Color c, int x, int y) {
+        g.setColor(c);
+        g.drawLine(x, y, x, y);
+    }
     public Color traceRay(Point3d O, Point3d D){
         double closest_t = Double.MAX_VALUE;
         Sphere closest_sphere = null;
@@ -26,7 +30,7 @@ public class Raytracer extends JPanel {
         }
     }
 
-    private double intersectRaySphere(Point3d o, Point3d d, Sphere sphere) {
+    public double intersectRaySphere(Point3d o, Point3d d, Sphere sphere) {
         double r = sphere.getRadius();
         Point3d c = sphere.getCenter();
         double a = d.getX() * d.getX() + d.getY() * d.getY() + d.getZ() * d.getZ();
@@ -71,5 +75,6 @@ public class Raytracer extends JPanel {
         //put the panel on the frame and make it visible
         frame.setContentPane(new Raytracer());
         frame.setVisible(true);
+        Color x = traceRay(new Point3d(0, 0, 0), new Point3d(0, 0, 0), new Sphere((new Point3d(0, 0, 0)), 10, (new Color(0, 0, 0)), 0));
     }
 }

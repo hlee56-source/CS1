@@ -9,13 +9,7 @@ import java.awt.geom.AffineTransform;
 //make sure the class extends jPanel
 public class FallFestival extends JPanel {
     //this method "paints" things onto the panel
-    public static void drawSunset(Graphics g) {
-        Graphics2D g2D = (Graphics2D) g;
-        GradientPaint sunset = new GradientPaint(0, 0, new Color(140, 38, 191), 0, 500, new Color(255, 128, 0));
-        g2D.setPaint(sunset);
-        g2D.fillRect(0, 0, 1000, 800);
-    }
-    public void drawLeaves(Graphics g, int numLeaves, int screenWidth, int screenHeight, double leaveSize) {
+    public void drawLeaves(Graphics g, int numLeaves, int heightStart, int screenWidth, int screenHeight, double leafSize) {
         Image image = new ImageIcon("G:\\My Drive\\School\\9th grade\\CS1\\FallFestival\\src\\leave.png").getImage();
         Graphics2D g2 = (Graphics2D) g.create();
 
@@ -24,47 +18,36 @@ public class FallFestival extends JPanel {
 
         for (int i = 0; i < numLeaves; i++) {
             int randomX = (int) ((Math.random() * (screenWidth + 1)));
-            int randomY = (int) ((Math.random() * (screenHeight + 1)));
+            int randomY = (int) (heightStart + (Math.random() * (screenHeight - heightStart)));
             AffineTransform transform = new AffineTransform();
             transform.translate(randomX, randomY);
-            transform.scale(leaveSize, leaveSize);
+            double scale = (Math.random() * leafSize);
+            if (scale < 0.05) {
+                scale = 0.05;
+            }
+            transform.scale(scale, scale);
             transform.rotate(randomX);
             g2.drawImage(image, transform, this);
         }
         //g2.dispose();
-    }
-    public static void drawSun(Graphics g, int x, int y, int size) {
-        g.setColor(new Color(255, 219, 0, 255));
-        g.fillOval(x, y, size, size);
     }
     public static void drawRoad(Graphics g) {
         int[] xPoints = {400, 600, 950, 50};
         int[] yPoints = {400, 400, 800, 800};
         g.fillPolygon(xPoints, yPoints, 4);
     }
-    public void drawTree(Graphics g, int x, int y, int height) {
-        g.setColor(new Color(69, 57, 45));
-        g.fillRect((x-10), y, 20, height);
-        g.setColor(new Color(143, 45, 45));
-        g.fillOval((x-50), (y-height), 100, 150);
-    }
-    public static void drawSunBeams(Graphics g, int x, int y, int size) {
-        g.setColor(new Color(255, 219, 0, 100));
-        g.fillArc(x, y, size, size, 0, 180);
-    }
 
     public void paintComponent (Graphics g)	{
-        drawSunset(g); // draw background
-        drawSun(g, 350, 250, 300); // draw the sun
-        drawSunBeams(g, 300, 200, 400);
+        Sun.drawSunset(g);
+        Sun.drawSunBeams(g, 500, 400, 50);
         g.setColor(new Color(52, 74, 34)); // dark green
         g.fillRect(0, 400, 1000, 800); // draw the ground
         g.setColor(new Color(51, 37, 29, 255)); // dark brown
         drawRoad(g); // draw the road
-        drawTree(g, 700, 350, 125); // draw trees
-        drawTree(g, 300, 350, 125);
-        drawTree(g, 900, 500, 150);
-        drawTree(g, 100, 500, 150);
+        Tree.drawTree(g, 700, 350, 125); // draw trees
+        Tree.drawTree(g, 300, 350, 125);
+        Tree.drawTree(g, 900, 500, 150);
+        Tree.drawTree(g, 100, 500, 150);
         g.setColor(new Color(87, 59, 50, 255)); // light brown
         for (int i = 0; i < 5; i++) // make the line thicker (and also use a for loop)
             g.drawLine((800+i), 600, (800+i), 700);
@@ -72,7 +55,7 @@ public class FallFestival extends JPanel {
         g.setColor(new Color(0, 0, 0)); // black
         g.setFont(new Font(Font.SERIF, Font.BOLD, 30)); // set font to a decent size
         g.drawString("Fall!", 775, 610); // draw text for the sign
-        drawLeaves(g, 10, 1000, 800, 0.1);
+        drawLeaves(g, 10,300, 1000, 700, 0.1);
 
     }
     //Driver

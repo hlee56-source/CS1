@@ -7,7 +7,14 @@ public class Sun {
     }
     public static void drawSunset(Graphics g) {
         Graphics2D g2D = (Graphics2D) g;
-        GradientPaint sunset = new GradientPaint(0, 0, new Color(140, 38, 191), 0, 500, new Color(255, 128, 0));
+        GradientPaint sunset;
+        if (Math.random() < 0.5) {
+            sunset = new GradientPaint(0, 0, new Color(140, 38, 191), 0, 500, new Color(255, 128, 0));
+        } else {
+            sunset = new GradientPaint(0, 0, new Color(140, 38, 0), 0, 500, new Color(255, 0, 0));
+        }
+        
+
         g2D.setPaint(sunset);
         g2D.fillRect(0, 0, 1000, 800);
     }

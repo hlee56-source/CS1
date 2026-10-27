@@ -64,7 +64,7 @@ public class FallFestival extends JPanel {
         JFrame frame = new JFrame("Fall Scene");
         frame.setSize(1000, 800);
         frame.setLocation(0, 0);
-        frame.setResizable(false);
+        //frame.setResizable(false);
         //tells the java program to exit when the graphics window is closed
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

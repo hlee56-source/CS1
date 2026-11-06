@@ -7,6 +7,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="JKarel Start Files" level="project" />
+    <orderEntry type="library" exported="" name="JKarel Start Files" level="project" />
+    <orderEntry type="library" name="xchart-4.0.4" level="project" />
+    <orderEntry type="library" name="xchart-4.0" level="project" />
   </component>
 </module>

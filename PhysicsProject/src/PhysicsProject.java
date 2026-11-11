@@ -137,7 +137,7 @@ public class PhysicsProject {
             xPoints.add(i);
             yPoints.add(findX(v0, i));
         }
-        XYChart chart = new XYChartBuilder()
+        XYChart chart = new XYChartBuilder() // Used google for the scatter plot syntax
                 .width(800)
                 .height(600)
                 .title("Launch Angle vs Horizontal Distance")

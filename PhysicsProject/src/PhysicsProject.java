@@ -1,13 +1,13 @@
 
 //CS1 and Physics - Integrated Projectile Project
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import edu.fcps.karel2.Display;
-import org.knowm.xchart.QuickChart;
-import org.knowm.xchart.SwingWrapper;
-import org.knowm.xchart.XYChart;
+import org.knowm.xchart.*;
 
-import javax.swing.JOptionPane;
+import javax.swing.JFileChooser;
+import javax.swing.*;
 import java.awt.*;
 
 public class PhysicsProject {
@@ -28,37 +28,43 @@ public class PhysicsProject {
 
         // User input to define initial velocity and launch angle
         // the parseDouble method converts the string input to a double
+        int choice1 = JOptionPane.showConfirmDialog(null, "do you want to output a scatter plot of IV vs DV?", "options", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         v0 = Double.parseDouble(JOptionPane.showInputDialog("Please enter an initial velocity in m/s"));
-        try{
-            Ay = Double.parseDouble(JOptionPane.showInputDialog("Please describe your planet's gravity in m/s^2 \nEnter nothing for Earth"));
-        } catch (Exception e) {
-            Ay = -9.8;
-        }
-        try{
-            initial = Double.parseDouble(JOptionPane.showInputDialog("Please describe the launch height in meters\nEnter nothing for a flat launch"));
-        } catch (Exception e) {
-            initial = 0;
-        }
-        if (Ay >= 0) {
-            JOptionPane.showMessageDialog(null, "Gravity needs to be negative, setting to Earth's gravity of -9.8");
-            Ay = -9.8;
-        }
-        int choice = JOptionPane.showConfirmDialog(
-                null,
-                "Do you want to run a simulation instead of finding the best launch angle",
-                "Options",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE
-        );
-        if (choice == JOptionPane.YES_OPTION) {
-            angleDegrees = Double.parseDouble(JOptionPane.showInputDialog("Please enter an initial angle in degrees"));
-            calculateProjectile(v0, angleDegrees);
+        if (choice1 == JOptionPane.NO_OPTION) {
+            try {
+                Ay = Double.parseDouble(JOptionPane.showInputDialog("Please describe your planet's gravity in m/s^2 \nEnter nothing for Earth"));
+            } catch (Exception e) {
+                Ay = -9.8;
+            }
+            try {
+                initial = Double.parseDouble(JOptionPane.showInputDialog("Please describe the launch height in meters\nEnter nothing for a flat launch"));
+            } catch (Exception e) {
+                initial = 0;
+            }
+            if (Ay >= 0) {
+                JOptionPane.showMessageDialog(null, "Gravity needs to be negative, setting to Earth's gravity of -9.8");
+                Ay = -9.8;
+            }
+            int choice = JOptionPane.showConfirmDialog(
+                    null,
+                    "Do you want to run a simulation instead of finding the best launch angle",
+                    "Options",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE
+            );
+            if (choice == JOptionPane.YES_OPTION) {
+                angleDegrees = Double.parseDouble(JOptionPane.showInputDialog("Please enter an initial angle in degrees"));
+                calculateProjectile(v0, angleDegrees);
+            } else {
+                String angle = String.valueOf(findBestAngle(v0, 1, 90));
+                JOptionPane.showMessageDialog(null, "Launch angle: " + angle + " degrees\nInitial velocity: " + String.valueOf(v0) + " m/s\nGravity: " + String.valueOf(Ay) + " m/s/s\nLaunch Height: " + String.valueOf(initial) + " meters");
+            }
         } else {
-            findBestAngle(v0, 1, 90);
+            graphOptimalAngle(v0);
         }
-
 
     }
+
 
     public static double calculateV0X(double v0, double angleDegrees) {
         return v0 * Math.cos(Math.toRadians(angleDegrees));
@@ -72,7 +78,7 @@ public class PhysicsProject {
         return v0x * t;
     }
     public static double calculateY(double t, double v0y, double gravity) {
-        return v0y * t + 0.5 * gravity * (t * t) + initial;
+        return v0y * t + 0.5 * gravity * (t * t) + PhysicsProject.initial;
     }
 
     public static void calculateProjectile(double v0, double angleDegrees){
@@ -87,14 +93,15 @@ public class PhysicsProject {
         System.out.println("V0y: " + v0y);
         while (y >= 0) {
             x = calculateX(t, v0x);
-            y = calculateY(t, v0y, Ay);
+            y = calculateY(t, v0y, PhysicsProject.Ay);
             //IO.println("x: " + x + " y: " + y + " time: " + t);
             xPoints.add(x);
             yPoints.add(y);
-            t += dt;
+            t += PhysicsProject.dt;
         }
         XYChart chart = QuickChart.getChart("Projectile motion", "X", "Y", "Object motion", xPoints, yPoints);
         new SwingWrapper(chart).displayChart();
+
 
     }
     public static double findX(double v0, double angleDegrees){
@@ -105,12 +112,12 @@ public class PhysicsProject {
         double v0y = calculateV0Y(v0, angleDegrees); //initial y velocity of the projectile
         while (y >= 0) {
             x = calculateX(t, v0x);
-            y = calculateY(t, v0y, Ay);
-            t += dt;
+            y = calculateY(t, v0y, PhysicsProject.Ay);
+            t += PhysicsProject.dt;
         }
         return x;
     }
-    public static void findBestAngle(double v0, double angleStart, double angleEnd) {
+    public static int findBestAngle(double v0, double angleStart, double angleEnd) {
         // floats will be clamped to int
         double x;
         double highestX = 0;
@@ -125,5 +132,33 @@ public class PhysicsProject {
         }
         IO.println("The best angle was " + bestAngle + " with a launch distance of " + highestX + "\nDisplaying graph...");
         calculateProjectile(v0, bestAngle);
+        return (int) bestAngle;
+    }
+    public static void graphOptimalAngle(double v0) {
+        List<Double> xPoints = new ArrayList<>();
+        List<Double> yPoints = new ArrayList<>();
+        for (double i = 0; i < 90; i += 1) {
+            xPoints.add(i);
+            yPoints.add(findX(v0, i));
+        }
+        XYChart chart = new XYChartBuilder()
+                .width(800)
+                .height(600)
+                .title("Launch Angle vs Horizontal Distance")
+                .xAxisTitle("Launch Angle (degrees)")
+                .yAxisTitle("Horizontal Distance (meters)")
+                .build();
+
+        // Customize Chart Style to Scatter
+        chart.getStyler().setDefaultSeriesRenderStyle(XYSeries.XYSeriesRenderStyle.Scatter);
+        chart.getStyler().setChartTitleVisible(true);
+        chart.getStyler().setLegendVisible(true);
+
+        // Add Data Series
+
+        chart.addSeries("Launch Angle vs Horizontal Distance\nWith V0 = " + v0 + " m/s", xPoints, yPoints);
+
+        // Display Chart in Swing Window
+        new SwingWrapper<>(chart).displayChart();
     }
 }

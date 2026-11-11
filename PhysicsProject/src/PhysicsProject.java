@@ -1,12 +1,8 @@
-
-//CS1 and Physics - Integrated Projectile Project
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import edu.fcps.karel2.Display;
+
 import org.knowm.xchart.*;
 
-import javax.swing.JFileChooser;
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,13 +10,13 @@ public class PhysicsProject {
     // global variables
     // these can be referenced anywhere in the program
     public static double Ay = -9.8; //y acceleration (gravity)
-    public static double Ax = 0;    //x acceleration (0 for this simulation)
     public static double dt = 0.1;  //time between calculations
     public static double initial = 0;
-    public static void main(String[] args){
+
+    static void main() {
         // variables this method will be using
-        double v0 = 0; //initial velocity of the projectile
-        double angleDegrees = 0; //launch angle
+        double v0; //initial velocity of the projectile
+        double angleDegrees; //launch angle
 
         // Open default map and set speed
         //Display.setSize(100,100);
@@ -57,7 +53,7 @@ public class PhysicsProject {
                 calculateProjectile(v0, angleDegrees);
             } else {
                 String angle = String.valueOf(findBestAngle(v0, 1, 90));
-                JOptionPane.showMessageDialog(null, "Launch angle: " + angle + " degrees\nInitial velocity: " + String.valueOf(v0) + " m/s\nGravity: " + String.valueOf(Ay) + " m/s/s\nLaunch Height: " + String.valueOf(initial) + " meters");
+                JOptionPane.showMessageDialog(null, "Launch angle: " + angle + " degrees\nInitial velocity: " + v0 + " m/s\nGravity: " + Ay + " m/s/s\nLaunch Height: " + initial + " meters");
             }
         } else {
             graphOptimalAngle(v0);
@@ -77,19 +73,19 @@ public class PhysicsProject {
     public static double calculateX(double t, double v0x) {
         return v0x * t;
     }
+
     public static double calculateY(double t, double v0y, double gravity) {
         return v0y * t + 0.5 * gravity * (t * t) + PhysicsProject.initial;
     }
 
-    public static void calculateProjectile(double v0, double angleDegrees){
+    public static void calculateProjectile(double v0, double angleDegrees) {
         double t = 0; //time elapsed since launch
-        double x = 0; //current x coordinate of the projectile
+        double x; //current x coordinate of the projectile
         double y = 0; //current y coordinate of the projectile
         double v0x = calculateV0X(v0, angleDegrees); //initial x velocity of the projectile
         double v0y = calculateV0Y(v0, angleDegrees); //initial y velocity of the projectile
         List<Double> xPoints = new ArrayList<>();
         List<Double> yPoints = new ArrayList<>();
-        System.out.println("V0x: " + v0x);
         System.out.println("V0y: " + v0y);
         while (y >= 0) {
             x = calculateX(t, v0x);
@@ -101,10 +97,9 @@ public class PhysicsProject {
         }
         XYChart chart = QuickChart.getChart("Projectile motion", "X", "Y", "Object motion", xPoints, yPoints);
         new SwingWrapper(chart).displayChart();
-
-
     }
-    public static double findX(double v0, double angleDegrees){
+
+    public static double findX(double v0, double angleDegrees) {
         double t = 0; //time elapsed since launch
         double x = 0; //current x coordinate of the projectile
         double y = 0; //current y coordinate of the projectile
@@ -117,6 +112,7 @@ public class PhysicsProject {
         }
         return x;
     }
+
     public static int findBestAngle(double v0, double angleStart, double angleEnd) {
         // floats will be clamped to int
         double x;
@@ -130,10 +126,10 @@ public class PhysicsProject {
             }
             IO.println("Angle: " + angle + " degrees, X: " + x);
         }
-        IO.println("The best angle was " + bestAngle + " with a launch distance of " + highestX + "\nDisplaying graph...");
         calculateProjectile(v0, bestAngle);
         return (int) bestAngle;
     }
+
     public static void graphOptimalAngle(double v0) {
         List<Double> xPoints = new ArrayList<>();
         List<Double> yPoints = new ArrayList<>();

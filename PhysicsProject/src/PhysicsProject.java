@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.math.BigDecimal;
 
 import org.knowm.xchart.*;
 
@@ -13,7 +14,7 @@ public class PhysicsProject {
     public static double dt = 0.1;  //time between calculations
     public static double initial = 0;
 
-    static void main() {
+    public static void main(String[] args) {
         // variables this method will be using
         double v0; //initial velocity of the projectile
         double angleDegrees; //launch angle
@@ -78,37 +79,43 @@ public class PhysicsProject {
         return v0y * t + 0.5 * gravity * (t * t) + PhysicsProject.initial;
     }
 
+    private static double timeAtStep(long step) {
+        return BigDecimal.valueOf(dt).multiply(BigDecimal.valueOf(step)).doubleValue();
+    }
+
     public static void calculateProjectile(double v0, double angleDegrees) {
-        double t = 0; //time elapsed since launch
+        int step = 0;
+        double t; //time elapsed since launch
         double x; //current x coordinate of the projectile
         double y = 0; //current y coordinate of the projectile
         double v0x = calculateV0X(v0, angleDegrees); //initial x velocity of the projectile
         double v0y = calculateV0Y(v0, angleDegrees); //initial y velocity of the projectile
         List<Double> xPoints = new ArrayList<>();
         List<Double> yPoints = new ArrayList<>();
-        System.out.println("V0y: " + v0y);
         while (y >= 0) {
+            t = timeAtStep(step);
             x = calculateX(t, v0x);
             y = calculateY(t, v0y, PhysicsProject.Ay);
-            //IO.println("x: " + x + " y: " + y + " time: " + t);
             xPoints.add(x);
             yPoints.add(y);
-            t += PhysicsProject.dt;
+            step++;
         }
         XYChart chart = QuickChart.getChart("Projectile motion", "X", "Y", "Object motion", xPoints, yPoints);
         new SwingWrapper(chart).displayChart();
     }
 
     public static double findX(double v0, double angleDegrees) {
-        double t = 0; //time elapsed since launch
+        int step = 0;
+        double t; //time elapsed since launch
         double x = 0; //current x coordinate of the projectile
         double y = 0; //current y coordinate of the projectile
         double v0x = calculateV0X(v0, angleDegrees); //initial x velocity of the projectile
         double v0y = calculateV0Y(v0, angleDegrees); //initial y velocity of the projectile
         while (y >= 0) {
+            t = timeAtStep(step);
             x = calculateX(t, v0x);
             y = calculateY(t, v0y, PhysicsProject.Ay);
-            t += PhysicsProject.dt;
+            step++;
         }
         return x;
     }
@@ -124,7 +131,6 @@ public class PhysicsProject {
                 highestX = x;
                 bestAngle = angle;
             }
-            IO.println("Angle: " + angle + " degrees, X: " + x);
         }
         calculateProjectile(v0, bestAngle);
         return (int) bestAngle;

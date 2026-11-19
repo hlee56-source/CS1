@@ -10,10 +10,10 @@ import java.util.List;
 
 public class RandomNumberGames {
     public static int guessMyNumber(int min, int max){
-        return (int)(Math.random() * (max - min)) + min;
+        return (int)(Math.random() * (max + 1 - min)) + min;
     }
     public static void diceGame() {
-        int randomNum = (int) (Math.random() * 11) + 1;
+        int randomNum = (int) ((Math.random() * 6) + (Math.random() * 6));
         if (randomNum < 7) {
             IO.println("You lose :(");
         } else if (randomNum == 7) {

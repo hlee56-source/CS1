@@ -8,7 +8,7 @@ public class ModulusPractice {
         fizzBuzz();
     }
     public static void fizzBuzz() {
-        for (int i = 1; i <= 1000; i ++){
+        for (int i = 1; i <= 100000; i ++){
             if (i % 3 == 0) {
                 IO.print("Fizz");
             }
@@ -25,7 +25,7 @@ public class ModulusPractice {
                 IO.print("Fazz");
             }
 
-            if (i % 3 != 0 && i % 5 != 0) {
+            if (i % 3 != 0 && i % 5 != 0 && i % 8 != 0) { // if it's not 3, it won't be 9 or 12
                 IO.print(i);
             }
             IO.print("\n");
